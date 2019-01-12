@@ -7,6 +7,10 @@ Page({
       },
       success: res => {
         console.log(res)
+        let result = res.data.result
+        let nowTemp = result.now.temp
+        let nowWeather = result.now.weather
+        console.log(nowTemp, nowWeather )
       }
     })
   }
