@@ -8,3 +8,5 @@
   <image class="timetips-icon" src="/images/time-icon.png"></image>
   <view class="timetips-text">未来24小时天气预报</view>
 </view>
+
+<view class="forecast-item" wx:for="{{[1,2,3,4,5]}}">{{item}}</view>
