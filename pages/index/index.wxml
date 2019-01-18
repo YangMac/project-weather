@@ -11,6 +11,10 @@
 
 <scroll-view scroll-x>
   <view class="forecast-list">
-    <view class="forecast-item" wx:for="{{[1,2,3,4,5,6,7,8,9]}}">{{item}}</view>
+    <view class="forecast-item" wx:for="{{forecast}}">
+      <view class="forecast-time">{{item}}</view>
+      <image class="forecast-weather" src="/images/sunny-icon.png"></image>
+      <view class="forecast-temp">{{item}}</view>
+    </view>
   </view>
 </scroll-view>
