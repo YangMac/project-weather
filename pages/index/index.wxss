@@ -76,3 +76,28 @@
   line-height: 56rpx;
   margin-top: 50rpx;
 }
+
+.day-weather {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  height: 90rpx;
+  right: 40rpx;
+  left: 40rpx;
+  border-top: 1rpx solid rgba(0, 0, 0, 0.1);
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.5;
+}
+
+.temp-text {
+  flex-grow: 1;
+  padding-right: 30rpx;
+  text-align: right;
+}
+
+.arrow-icon {
+  width: 13rpx;
+  height: 24rpx;
+}
