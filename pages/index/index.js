@@ -17,6 +17,7 @@ const weatherColorMap = {
 }
 
 Page({
+  // 指定页面初始数据
   data: {
     nowTemp: '',
     nowWeather: '',
@@ -26,6 +27,7 @@ Page({
     todayTemp: ''
   },
   
+  // 监听用户下拉动作
   onPullDownRefresh() {
     this.getNow(() => {
       wx.stopPullDownRefresh()
@@ -42,6 +44,7 @@ Page({
       data: {
         city: '上海市'
       },
+      // 接口调用成功的回调函数
       success: res => {
         console.log(res)
         let result = res.data.result
@@ -49,11 +52,13 @@ Page({
         this.setHourlyWeather(result)
         this.setToday(result)
       },
+      // 接口调用结束的回调函数（调用成功、失败都会执行）
       complete: () => {
         callback && callback()
       }
     })
   },
+
   setNow(result) {
     let temp = result.now.temp
     let weather = result.now.weather
@@ -63,6 +68,7 @@ Page({
       nowWeather: weatherMap[weather],
       nowWeatherBackground: '/images/' + weather + '-bg.png'
     })
+    // 动态更新导航栏颜色
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: weatherColorMap[weather]
@@ -85,6 +91,7 @@ Page({
       hourlyWeather: hourlyWeather
     })
   },
+
   setToday(result) {
     let date = new Date()
     this.setData({
