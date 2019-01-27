@@ -42,7 +42,7 @@ Page({
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
       data: {
-        city: '上海市'
+        city: '昆明市'
       },
       // 接口调用成功的回调函数
       success: res => {

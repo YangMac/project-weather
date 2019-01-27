@@ -7,8 +7,6 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.date-wrapper {}
-
 .day {
   font-size: 40rpx;
   line-height: 60rpx;
