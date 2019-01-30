@@ -18,7 +18,7 @@ Page({
       url: 'https://test-miniprogram.com/api/weather/future',
       data: {
         time: new Date().getTime(),
-        city: "广州市"
+        city: "昆明市"
       },
       success: res => {
         let result = res.data.result
