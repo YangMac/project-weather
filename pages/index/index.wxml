@@ -1,6 +1,6 @@
 <view class="weather-wrapper">
   <view class="location-wrapper">
-    <view class="location">
+    <view class="location" bindtap="onTapLocation">
       <image class="location-icon" src="/images/location-icon.png"></image>
       <view class="location-text">昆明市</view>
     </view>
