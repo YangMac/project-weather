@@ -26,7 +26,9 @@ Page({
     nowWeatherBackground: '',
     hourlyWeather: [],
     todayDate: '',
-    todayTemp: ''
+    todayTemp: '',
+    city: '昆明市',
+    locationTipsText: '点击获取当前位置'
   },
   
   // 监听用户下拉动作
@@ -47,7 +49,7 @@ Page({
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
       data: {
-        city: '昆明市'
+        city: this.data.city
       },
       // 接口调用成功的回调函数
       success: res => {
@@ -115,7 +117,6 @@ Page({
   onTapLocation() {
     wx.getLocation({
       success: res => {
-        console.log(res.latitude, res.longitude)
         this.qqmapsdk.reverseGeocoder({
           location: {
             latitude: res.latitude,
@@ -123,7 +124,12 @@ Page({
           },
           success: res => {
             let city = res.result.address_component.city
+            this.setData({
+              city: city,
+              locationTipsText: ''
+            })
             console.log(city)
+            this.getNow()
           }
         })
       }

@@ -42,6 +42,7 @@
   text-align: center;
   font-size: 30rpx;
   line-height: 42rpx;
+  height: 42rpx;
 }
 
 .weather-bg {
