@@ -110,7 +110,7 @@ Page({
   onTapDayWeather() {
     wx.showToast()
     wx.navigateTo({
-      url: '/pages/list/list'
+      url: '/pages/list/list?city=' + this.data.city
     })
   },
 

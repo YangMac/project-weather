@@ -3,9 +3,13 @@ const dayMap = ['星期日', '星期一', '星期二', '星期三', '星期四',
 
 Page({
   data: {
-    weekWeather: []
+    weekWeather: [],
+    city: ""
   },
-  onLoad() {
+  onLoad(options) {
+    this.setData({
+      city: options.city
+    })
     this.getWeekWeather()
   },
   onPullDownRefresh() {
