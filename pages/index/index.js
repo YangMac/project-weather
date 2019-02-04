@@ -18,6 +18,14 @@ const weatherColorMap = {
 
 const QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
 
+const UNPROMATED = 0
+const UNAUTHORIZED = 1
+const AUTHORIZED = 2
+
+const UNPROMATED_TIPS = '点击获取当前位置'
+const UNAUTHORIZED_TIPS = '点击开启位置权限'
+const AUTHORIZED_TIPS = ''
+
 Page({
   // 指定页面初始数据
   data: {
@@ -28,7 +36,8 @@ Page({
     todayDate: '',
     todayTemp: '',
     city: '昆明市',
-    locationTipsText: '点击获取当前位置'
+    loacitonAuthType: UNPROMATED,
+    locationTipsText: UNPROMATED_TIPS
   },
   
   // 监听用户下拉动作
@@ -117,6 +126,10 @@ Page({
   onTapLocation() {
     wx.getLocation({
       success: res => {
+        this.setData({
+          locationAuthType: AUTHORIZED,
+          locationTipsText: AUTHORIZED_TIPS
+        })
         this.qqmapsdk.reverseGeocoder({
           location: {
             latitude: res.latitude,
@@ -131,6 +144,12 @@ Page({
             console.log(city)
             this.getNow()
           }
+        })
+      },
+      fail: () => {
+        this.setData({
+          locationAuthType: UNAUTHORIZED,
+          locationTipsText: UNAUTHORIZED_TIPS
         })
       }
     })
