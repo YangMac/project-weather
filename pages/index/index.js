@@ -124,6 +124,9 @@ Page({
   },
 
   onTapLocation() {
+    this.getLocation()
+  },
+  getLocation() {
     wx.getLocation({
       success: res => {
         this.setData({
