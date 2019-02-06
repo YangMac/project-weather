@@ -117,7 +117,6 @@ Page({
   },
 
   onTapDayWeather() {
-    wx.showToast()
     wx.navigateTo({
       url: '/pages/list/list?city=' + this.data.city
     })
@@ -142,7 +141,6 @@ Page({
             let city = res.result.address_component.city
             this.setData({
               city: city,
-              locationTipsText: ''
             })
             console.log(city)
             this.getNow()
