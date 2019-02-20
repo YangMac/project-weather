@@ -51,7 +51,27 @@ Page({
     this.qqmapsdk = new QQMapWX({
       key: 'GKMBZ-GUULJ-KTPF3-KYE4P-VLPLH-6QFN3'
     })
-    this.getNow()
+    wx.getSetting({
+      success: res => {
+        let auth = res.authSetting['scope.userLocation']
+        let locationAuthType = auth ? AUTHORIZED
+          : (auth === false) ? UNAUTHORIZED : UNPROMPTED
+        let locationTipsText = auth ? AUTHORIZED_TIPS
+          : (auth === false) ? UNAUTHORIZED_TIPS : UNPROMPTED_TIPS
+        this.setData({
+          locationAuthType: locationAuthType,
+          locationTipsText: locationTipsText
+        })
+
+        if (auth)
+          this.getCityAndWeather()
+        else
+          this.getNow() //使用默认城市广州
+      },
+      fail: () => {
+        this.getNow() //使用默认城市广州
+      }
+    })
   },
 
   getNow(callback) {
