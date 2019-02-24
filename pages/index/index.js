@@ -89,7 +89,6 @@ Page({
   setNow(result) {
     let temp = result.now.temp
     let weather = result.now.weather
-    console.log(temp, weather)
     this.setData({
       nowTemp: temp + '°',
       nowWeather: weatherMap[weather],
@@ -152,7 +151,6 @@ Page({
             this.setData({
               city: city,
             })
-            console.log(city)
             this.getNow()
           }
         })
